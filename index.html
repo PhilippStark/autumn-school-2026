@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsible AI for STI Research – EU-SPRI/CIRCLE Autumn School 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="index_files/css2.css" rel="stylesheet">
+  <style>
+    :root {
+      --ink:        #1a1a2e;
+      --mid:        #3d4066;
+      --accent:     #c0392b;
+      --accent2:    #e8a020;
+      --light:      #f5f3ee;
+      --lighter:    #faf9f6;
+      --rule:       #d6d2c8;
+      --serif:      'Spectral', Georgia, serif;
+      --sans:       'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--lighter);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Decorative rule above title */
+    .header-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .header-rule span {
+      display: inline-block;
+      height: 2px;
+      background: var(--accent);
+    }
+    .header-rule span:first-child { width: 40px; }
+    .header-rule span:last-child  { flex: 1; opacity: .3; }
+    .header-rule em {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+
+    header h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      color: #fff;
+      max-width: 640px;
+      margin-bottom: .8rem;
+    }
+    header h1 strong {
+      font-weight: 600;
+      font-style: italic;
+      color: var(--accent2);
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.5rem;
+      margin-top: 1.4rem;
+    }
+    .header-meta span {
+      font-size: .82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .header-meta span strong {
+      color: rgba(255,255,255,.9);
+      font-weight: 500;
+    }
+
+    /* Logo area in header */
+    .header-logo {
+      position: absolute;
+      top: 2.5rem;
+      right: 2rem;
+      width: 130px;
+      height: 60px;
+      border: 1.5px dashed rgba(255,255,255,.25);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .header-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .header-logo-placeholder {
+      font-size: .65rem;
+      color: rgba(255,255,255,.3);
+      text-align: center;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    /* Deadline badge */
+    .deadline-banner {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: .6rem 2rem;
+      font-size: .83rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    /* ── SECTION ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    section h2 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1.5px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+    section h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    p { margin-bottom: 1rem; color: var(--ink); }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── THREE PILLARS ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .pillar {
+      background: var(--light);
+      border-left: 3px solid var(--accent);
+      padding: 1.3rem 1.4rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .pillar:nth-child(2) { border-left-color: var(--mid); }
+    .pillar:nth-child(3) { border-left-color: var(--accent2); }
+
+    .pillar h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      color: var(--ink);
+    }
+    .pillar p {
+      font-size: .88rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* ── WHAT YOU GET ── */
+    .benefits-list {
+      list-style: none;
+      margin-top: .8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: .5rem;
+    }
+    .benefits-list li {
+      padding: .55rem .8rem .55rem 2rem;
+      background: var(--light);
+      border-radius: 3px;
+      font-size: .9rem;
+      position: relative;
+    }
+    .benefits-list li::before {
+      content: '→';
+      position: absolute;
+      left: .75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── FEES BOX ── */
+    .fees {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 520px) { .fees { grid-template-columns: 1fr; } }
+
+    .fee-box {
+      padding: 1.2rem 1.4rem;
+      border-radius: 4px;
+    }
+    .fee-box.member   { background: #e8f4ec; border: 1px solid #a8d4b0; }
+    .fee-box.nonmember{ background: #fdf0e0; border: 1px solid #f0c87a; }
+
+    .fee-box .fee-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: .3rem;
+    }
+    .fee-box .fee-amount {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .fee-box p {
+      font-size: .83rem;
+      color: #555;
+      margin-top: .35rem;
+    }
+
+    /* ── APPLY BOX ── */
+    .apply-box {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 6px;
+      padding: 2rem 2.2rem;
+    }
+    .apply-box h2 {
+      color: #fff;
+      border-bottom-color: rgba(255,255,255,.2);
+    }
+    .apply-box h2::before { background: var(--accent2); }
+
+    .apply-steps {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      counter-reset: steps;
+    }
+    .apply-steps li {
+      counter-increment: steps;
+      padding: .5rem 0 .5rem 2.4rem;
+      position: relative;
+      font-size: .92rem;
+      color: rgba(255,255,255,.85);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .apply-steps li:last-child { border-bottom: none; }
+    .apply-steps li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: .5rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deadline-note {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--accent2);
+      margin-top: 1rem;
+    }
+
+    .contact-note {
+      margin-top: .8rem;
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+    }
+
+    /* ── ORGANISING TEAM ── */
+    .team-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: .8rem;
+      margin-top: .8rem;
+    }
+    .team-list li {
+      font-size: .92rem;
+      padding: .6rem .9rem;
+      background: var(--light);
+      border-radius: 3px;
+    }
+    .team-list li strong { display: block; color: var(--ink); }
+    .team-list li span   { color: #666; font-size: .82rem; }
+
+    /* ── SPONSOR LOGOS ── */
+    footer {
+      background: var(--light);
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #999;
+      text-align: center;
+      margin-bottom: 1.4rem;
+    }
+    .sponsor-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem 3rem;
+    }
+    .sponsor-logo-slot {
+      width: 120px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px dashed #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .sponsor-logo-slot:hover { border-color: #aaa; }
+    .sponsor-logo-slot img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .sponsor-logo-slot-placeholder {
+      font-size: .6rem;
+      color: #bbb;
+      text-align: center;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+    .footer-copy {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: .78rem;
+      color: #aaa;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .header-logo { display: none; }
+      main { padding: 2rem 1.2rem 3rem; }
+    }
+
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .header-inner { animation: fadeUp .7s ease both; }
+    section { animation: fadeUp .6s ease both; }
+    section:nth-child(1) { animation-delay: .1s; }
+    section:nth-child(2) { animation-delay: .18s; }
+    section:nth-child(3) { animation-delay: .24s; }
+    section:nth-child(4) { animation-delay: .30s; }
+    section:nth-child(5) { animation-delay: .36s; }
+    section:nth-child(6) { animation-delay: .42s; }
+    section:nth-child(7) { animation-delay: .48s; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ HEADER ═══════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <div class="header-rule">
+      <span></span>
+      <em>EU-SPRI Autumn School</em>
+      <span></span>
+    </div>
+    <h1>Responsible AI for <strong>Science, Technology, Innovation, and Policy</strong></h1>
+    <div class="header-meta">
+      <span><strong>Lund University</strong>  ·  Lund, Sweden</span>
+      <span><strong>Autumn 2026</strong></span>
+      <span>Application deadline: <strong>1 August 2026</strong></span>
+    </div>
+
+    <!-- Replace logo-circle.png with your actual file in the /img/ folder -->
+    <div class="header-logo">
+      <img alt="CIRCLE Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;" src="index_files/logo-event.png">
+      <div class="header-logo-placeholder" style="display: flex;">
+        logo-event.png
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="deadline-banner">
+  Applications open  ·  Deadline: 1 August 2026  ·  No prior AI experience required
+</div>
+
+<!-- ═══════════════════════════════════ MAIN ═══════════════════════════════════ -->
+<main>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About the School</h2>
+    <p>
+      Artificial intelligence is reshaping how science is conducted, how innovation unfolds,
+      and how policy is designed and evaluated. For researchers working at the intersection of
+      science, technology, and innovation (STI), engaging critically and competently with AI is
+      rapidly becoming essential — not only as a topic of inquiry, but as a practical research tool
+      and a subject of governance concern.
+    </p>
+    <p>
+      The EU-SPRI Autumn School on <em>Responsible AI for Science, Technology,
+      Innovation, and Policy</em> is a one-week intensive training programme for PhD candidates
+      and early-career researchers (ECRs). Hosted at the Center for Innovation Research (CIRCLE)
+      at Lund University in Lund, Sweden, the School offers a structured, hands-on introduction to
+      AI in contemporary STI research — integrating conceptual, methodological, and ethical dimensions.
+    </p>
+    <p>
+      The School is jointly organized by CIRCLE, Lund University and VTT Technical Research
+      Centre of Finland, with the participation of additional partner institutions.
+    </p>
+  </section>
+
+  <!-- THREE PERSPECTIVES -->
+  <section>
+    <h2>Three Perspectives on AI</h2>
+    <p>The programme is structured around three complementary lenses:</p>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>AI as a Research Tool</h3>
+        <p>Hands-on experience with machine learning, NLP, topic modelling, semantic analysis,
+        automated coding, LLMs, and generative AI for social science tasks. Lab sessions are
+        designed to be accessible without prior programming experience.</p>
+      </div>
+      <div class="pillar">
+        <h3>AI as an Object of Inquiry</h3>
+        <p>How AI technologies shape innovation processes, entrepreneurship, industrial dynamics,
+        scientific production, and policy design — with engagement with current governance
+        debates across regional and institutional contexts.</p>
+      </div>
+      <div class="pillar">
+        <h3>AI as a Socio-Technical System</h3>
+        <p>The ethical, societal, and regulatory dimensions of AI: transparency, fairness, bias,
+        sustainability, interpretability, and responsible research practice — developing the
+        vocabulary to contribute to evidence-based policy discussions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME FORMAT -->
+  <section>
+    <h2>Programme Format</h2>
+    <p>
+      The School combines lectures, methodological workshops, case discussions, peer learning,
+      and collaborative project work. A dedicated methods and lab track equips participants with
+      practical tools — from data collection and preprocessing to model evaluation and communicating
+      AI-derived insights responsibly. Participants also receive feedback on their own ongoing
+      research from senior scholars and build connections with peers across institutions and disciplines.
+    </p>
+    <p>
+      One day of the programme is organised as a joint event with CIRCLE and the broader
+      Lund University research community, offering additional opportunities for engagement
+      and collaboration.
+    </p>
+    <p>
+      <strong>Group Research Project:</strong> Working in interdisciplinary groups of five,
+      participants collaboratively develop a short research proposal applying AI to an STI challenge.
+      On the final day, proposals are evaluated by a jury of senior scholars and practitioners —
+      simulating a real-world funding panel and providing formative feedback that participants
+      can build on in future applications.
+    </p>
+  </section>
+
+  <!-- WHO SHOULD APPLY -->
+  <section>
+    <h2>Who Should Apply</h2>
+    <p>
+      The School welcomes applications from PhD students and early-career researchers from all
+      disciplines with an interest in AI and its intersections with science, technology, and innovation.
+      We actively seek a diverse cohort — both quantitative and qualitative researchers, and both
+      those with and without prior technical experience in AI. Prior coding or AI skills are not required.
+      What matters is motivation to engage with these topics and a willingness to learn.
+    </p>
+    <p>
+      ECRs should be within five years of PhD graduation. All applicants must be registered in a
+      doctoral programme or hold a completed PhD. Applications are welcome regardless of nationality
+      or country of origin. The programme is conducted in English.
+    </p>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section>
+    <h2>What Participants Receive</h2>
+    <ul class="benefits-list">
+      <li>Introduction to AI methods for empirical STI research</li>
+      <li>Conceptual grounding in AI governance, ethics, and innovation theory</li>
+      <li>Hands-on lab sessions with computational tools</li>
+      <li>Feedback from senior scholars on your own research project</li>
+      <li>A collaborative group research proposal as a concrete output</li>
+      <li>Access to the CIRCLE research environment and network</li>
+      <li>Networking and mentorship with international faculty and peers</li>
+      <li>Foundation for future grant applications and collaborations</li>
+    </ul>
+
+    <div class="fees">
+      <div class="fee-box member">
+        <div class="fee-label">EU-SPRI Member Participants</div>
+        <div class="fee-amount">Free</div>
+        <p>No tuition fee. Accommodation covered. Travel costs normally covered by home institution.</p>
+      </div>
+      <div class="fee-box nonmember">
+        <div class="fee-label">Non-EU-SPRI Participants</div>
+        <div class="fee-amount">€500</div>
+        <p>Programme participation fee. We are actively seeking additional funding to support international participants.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANISING TEAM -->
+  <section>
+    <h2>Organising Team</h2>
+    <ul class="team-list">
+      <li>
+        <strong>Vinicius Muraro</strong>
+        <span>CIRCLE, Lund University</span>
+      </li>
+      <li>
+        <strong>Sigrid Jessen</strong>
+        <span>CIRCLE, Lund University</span>
+      </li>
+      <li>
+        <strong>Philipp Stark</strong>
+        <span>CIRCLE, Lund University</span>
+      </li>
+      <li>
+        <strong>Arash Hajikhani</strong>
+        <span>VTT Technical Research Centre of Finland</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- HOW TO APPLY -->
+  <section class="apply-box">
+    <h2>How to Apply</h2>
+    <p style="color:rgba(255,255,255,.75); margin-bottom:.5rem;">
+      To apply, please prepare and submit the following three documents:
+    </p>
+    <ol class="apply-steps">
+      <li>
+        <strong>Application statement</strong> — describing your motivation for attending,
+        how the School relates to your current research and career development, and an overview
+        of your research project and data sources
+      </li>
+      <li>
+        <strong>CV</strong> — current curriculum vitae
+      </li>
+      <li>
+        <strong>Writing sample</strong> — an example of academic writing
+      </li>
+    </ol>
+    <p class="deadline-note">Application deadline: 1 August 2026</p>
+    <p class="contact-note">
+      Applicants will be notified with sufficient time to make travel arrangements.
+      For questions, please contact the organising team at CIRCLE, Lund University.
+    </p>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════ FOOTER / SPONSORS ═══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-label">Organising Institutions &amp; Partners</p>
+    <div class="sponsor-logos">
+
+      <!--
+        HOW TO ADD LOGOS:
+        1. Create a folder called  img/  next to this HTML file
+        2. Upload your logo files with the names listed below
+        3. The <img> tags will load them automatically
+
+        Suggested filenames (replace placeholders):
+          img/logo-circle.png       – CIRCLE, Lund University
+          img/logo-lu.png           – Lund University
+          img/logo-vtt.png          – VTT Technical Research Centre of Finland
+          img/logo-euspri.png       – EU-SPRI
+          img/logo-sponsor1.png     – Additional sponsor / partner
+          img/logo-sponsor2.png     – Additional sponsor / partner
+      -->
+
+      <a href="https://www.lu.se/circle" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="index_files/logo-circle.png" alt="CIRCLE, Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-circle.png</div>
+      </a>
+
+      <a href="https://www.lu.se" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="index_files/logo-lu.png" alt="Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-lu.png</div>
+      </a>
+
+      <a href="https://www.vttresearch.com" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="index_files/logo-vtt.png" alt="VTT Technical Research Centre of Finland" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-vtt.png</div>
+      </a>
+
+      <a href="https://www.euspri.eu" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="index_files/logo-euspri.png" alt="EU-SPRI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-euspri.png</div>
+      </a>
+
+      <a href="#" class="sponsor-logo-slot">
+        <img src="index_files/logo-sponsor1.png" alt="Partner institution" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-sponsor1.png</div>
+      </a>
+
+      <a href="#" class="sponsor-logo-slot">
+        <img src="index_files/logo-sponsor2.png" alt="Partner institution" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
+        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-sponsor2.png</div>
+      </a>
+
+    </div>
+    <p class="footer-copy">
+      EU-SPRI/CIRCLE Autumn School 2026  ·  Center for Innovation Research, Lund University
+    </p>
+  </div>
+</footer>
+
+
+
+</body></html>
