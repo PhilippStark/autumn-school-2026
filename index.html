@@ -423,6 +423,37 @@
     section:nth-child(5) { animation-delay: .36s; }
     section:nth-child(6) { animation-delay: .42s; }
     section:nth-child(7) { animation-delay: .48s; }
+	.save-the-date {
+	  background: var(--light);
+	  border-bottom: 1px solid var(--rule);
+	  padding: 1.1rem 2rem;
+	}
+	.save-the-date-inner {
+	  max-width: 900px;
+	  margin: 0 auto;
+	  display: flex;
+	  flex-wrap: wrap;
+	  align-items: center;
+	  gap: .5rem 1.5rem;
+	}
+	.std-label {
+	  font-size: .72rem;
+	  text-transform: uppercase;
+	  letter-spacing: .12em;
+	  font-weight: 500;
+	  color: var(--accent);
+	}
+	.std-dates {
+	  font-family: var(--serif);
+	  font-size: 1.15rem;
+	  font-weight: 600;
+	  color: var(--ink);
+	}
+	.std-note {
+	  font-size: .83rem;
+	  color: #777;
+	  font-style: italic;
+	}
   </style>
 </head>
 <body>
@@ -454,6 +485,14 @@
 
 <div class="deadline-banner">
   Applications open  ·  Deadline: 1 August 2026  ·  No prior AI experience required
+</div>
+
+<div class="save-the-date">
+  <div class="save-the-date-inner">
+    <span class="std-label">Save the Date</span>
+    <span class="std-dates">19 – 23 October 2026</span>
+    <span class="std-note">Full call for applications coming soon</span>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════ MAIN ═══════════════════════════════════ -->
@@ -685,7 +724,7 @@
 
     </div>
     <p class="footer-copy">
-      EU-SPRI/CIRCLE Autumn School 2026  ·  Center for Innovation Research, Lund University
+      EU-SPRI Autumn School 2026  ·  Center for Innovation Research, Lund University
     </p>
   </div>
 </footer>
