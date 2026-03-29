@@ -9,11 +9,11 @@
   <link href="index_files/css2.css" rel="stylesheet">
   <style>
     :root {
-      --ink:        #1a1a2e;
-      --mid:        #3d4066;
-      --accent:     #c0392b;
+      --ink:        #1b2a4a;
+      --mid:        #2c4170;
+      --accent:     #c8922e;
       --accent2:    #e8a020;
-      --light:      #f5f3ee;
+      --light:      #f4f2ed;
       --lighter:    #faf9f6;
       --rule:       #d6d2c8;
       --serif:      'Spectral', Georgia, serif;
@@ -32,105 +32,25 @@
       line-height: 1.75;
     }
 
-    /* ── HEADER ── */
+    /* ── HEADER / HERO ── */
     header {
-      background: var(--ink);
+      background: #0d1b2e;
       color: #fff;
       padding: 0;
       position: relative;
       overflow: hidden;
     }
 
-    .header-inner {
-      max-width: 900px;
+    .hero-banner {
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 3.5rem 2rem 3rem;
-      position: relative;
-      z-index: 2;
     }
 
-    /* Decorative rule above title */
-    .header-rule {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .header-rule span {
-      display: inline-block;
-      height: 2px;
-      background: var(--accent);
-    }
-    .header-rule span:first-child { width: 40px; }
-    .header-rule span:last-child  { flex: 1; opacity: .3; }
-    .header-rule em {
-      font-family: var(--sans);
-      font-style: normal;
-      font-size: .78rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      white-space: nowrap;
-    }
-
-    header h1 {
-      font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.2;
-      color: #fff;
-      max-width: 640px;
-      margin-bottom: .8rem;
-    }
-    header h1 strong {
-      font-weight: 600;
-      font-style: italic;
-      color: var(--accent2);
-    }
-
-    .header-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem 1.5rem;
-      margin-top: 1.4rem;
-    }
-    .header-meta span {
-      font-size: .82rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.55);
-    }
-    .header-meta span strong {
-      color: rgba(255,255,255,.9);
-      font-weight: 500;
-    }
-
-    /* Logo area in header */
-    .header-logo {
-      position: absolute;
-      top: 2.5rem;
-      right: 2rem;
-      width: 130px;
-      height: 60px;
-      border: 1.5px dashed rgba(255,255,255,.25);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
-    }
-    .header-logo img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-    .header-logo-placeholder {
-      font-size: .65rem;
-      color: rgba(255,255,255,.3);
-      text-align: center;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      line-height: 1.4;
+    .hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* Deadline badge */
@@ -372,15 +292,17 @@
       gap: 2rem 3rem;
     }
     .sponsor-logo-slot {
-      width: 120px;
-      height: 52px;
+      width: 140px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1.5px dashed #ccc;
-      border-radius: 4px;
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
       overflow: hidden;
       transition: border-color .2s;
+      padding: 6px;
+      background: #fff;
     }
     .sponsor-logo-slot:hover { border-color: #aaa; }
     .sponsor-logo-slot img {
@@ -405,7 +327,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      .header-logo { display: none; }
+      
       main { padding: 2rem 1.2rem 3rem; }
     }
 
@@ -414,7 +336,7 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .header-inner { animation: fadeUp .7s ease both; }
+    .hero-banner { animation: fadeUp .7s ease both; }
     section { animation: fadeUp .6s ease both; }
     section:nth-child(1) { animation-delay: .1s; }
     section:nth-child(2) { animation-delay: .18s; }
@@ -460,32 +382,10 @@
 
 <!-- ═══════════════════════════════════ HEADER ═══════════════════════════════════ -->
 <header>
-  <div class="header-inner">
-    <div class="header-rule">
-      <span></span>
-      <em>EU-SPRI Autumn School</em>
-      <span></span>
-    </div>
-    <h1>Responsible AI for <strong>Science, Technology, Innovation, and Policy</strong></h1>
-    <div class="header-meta">
-      <span><strong>Lund University</strong>  ·  Lund, Sweden</span>
-      <span><strong>19 – 23 October 2026</strong></span>
-      <span>Call for applications coming soon</span>
-    </div>
-
-    <!-- Replace logo-circle.png with your actual file in the /img/ folder -->
-    <div class="header-logo">
-      <img alt="CIRCLE Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;" src="index_files/logo-event.png">
-      <div class="header-logo-placeholder" style="display: flex;">
-        logo-event.png
-      </div>
-    </div>
+  <div class="hero-banner">
+    <img src="Top-Header.png" alt="EU-SPRI Autumn School – Responsible AI for Science, Technology, Innovation, and Policy – 19–23 October 2026 – CIRCLE/Lund University, Sweden" class="hero-img">
   </div>
 </header>
-
-<div class="deadline-banner">
-  19 &#x2013; 23 October 2026  &middot;  Lund, Sweden  &middot;  No prior AI experience required
-</div>
 
 <div class="save-the-date">
   <div class="save-the-date-inner">
@@ -494,6 +394,7 @@
     <span class="std-note">Full call for applications coming soon</span>
   </div>
 </div>
+
 
 <!-- ═══════════════════════════════════ MAIN ═══════════════════════════════════ -->
 <main>
@@ -679,49 +580,19 @@
     <p class="footer-label">Organising Institutions &amp; Partners</p>
     <div class="sponsor-logos">
 
-      <!--
-        HOW TO ADD LOGOS:
-        1. Create a folder called  img/  next to this HTML file
-        2. Upload your logo files with the names listed below
-        3. The <img> tags will load them automatically
 
-        Suggested filenames (replace placeholders):
-          img/logo-circle.png       – CIRCLE, Lund University
-          img/logo-lu.png           – Lund University
-          img/logo-vtt.png          – VTT Technical Research Centre of Finland
-          img/logo-euspri.png       – EU-SPRI
-          img/logo-sponsor1.png     – Additional sponsor / partner
-          img/logo-sponsor2.png     – Additional sponsor / partner
-      -->
 
-      <a href="https://www.lu.se/circle" target="_blank" rel="noopener" class="sponsor-logo-slot">
-        <img src="index_files/logo-circle.png" alt="CIRCLE, Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
-        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-circle.png</div>
+      <a href="https://www.euspri.eu" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="logo-euspri.png" alt="EU-SPRI" style="display: block;">
       </a>
 
-      <a href="https://www.lu.se" target="_blank" rel="noopener" class="sponsor-logo-slot">
-        <img src="index_files/logo-lu.png" alt="Lund University" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
-        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-lu.png</div>
+      <a href="https://www.lu.se/circle" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="logo-circle-lu.png" alt="CIRCLE, Lund University" style="display: block;">
       </a>
 
       <a href="https://www.vttresearch.com" target="_blank" rel="noopener" class="sponsor-logo-slot">
         <img src="index_files/logo-vtt.png" alt="VTT Technical Research Centre of Finland" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
         <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-vtt.png</div>
-      </a>
-
-      <a href="https://www.euspri.eu" target="_blank" rel="noopener" class="sponsor-logo-slot">
-        <img src="index_files/logo-euspri.png" alt="EU-SPRI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
-        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-euspri.png</div>
-      </a>
-
-      <a href="#" class="sponsor-logo-slot">
-        <img src="index_files/logo-sponsor1.png" alt="Partner institution" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
-        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-sponsor1.png</div>
-      </a>
-
-      <a href="#" class="sponsor-logo-slot">
-        <img src="index_files/logo-sponsor2.png" alt="Partner institution" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display: none;">
-        <div class="sponsor-logo-slot-placeholder" style="display: flex;">logo-sponsor2.png</div>
       </a>
 
     </div>
