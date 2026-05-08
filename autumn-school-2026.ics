@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EU-SPRI Autumn School 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:EU-SPRI Autumn School 2026
+X-WR-TIMEZONE:Europe/Stockholm
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261024
+SUMMARY:EU-SPRI/CIRCLE Autumn School 2026 – Responsible AI for STI Research
+DESCRIPTION:Early-Career EU-SPRI Autumn School 2026 on Responsible AI for Science\, Technology\, Innovation\, and Policy (STI). Hosted at the Centre for Innovation Research (CIRCLE)\, Lund University\, Lund\, Sweden. Application deadline: 16 August 2026.
+LOCATION:CIRCLE\, Lund University\, Lund\, Sweden
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
