@@ -315,7 +315,7 @@
       bottom: calc(100% + 10px);
       left: 0;
       z-index: 20;
-      width: 290px;
+      width: 360px;
       background: #fff;
       border: 1px solid var(--rule);
       border-radius: 8px;
@@ -324,7 +324,7 @@
       opacity: 0;
       pointer-events: none;
       transform: translateY(6px);
-      transition: opacity .17s ease, transform .17s ease;
+      transition: opacity .2s ease, transform .2s ease;
     }
     .team-bio-popup::after {
       content: '';
@@ -335,10 +335,14 @@
       border-top-color: #fff;
       filter: drop-shadow(0 2px 2px rgba(0,0,0,.08));
     }
-    .team-card:hover .team-bio-popup {
+    .team-bio-popup.is-visible {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+    }
+    .team-bio-popup .bio-text a {
+      color: var(--accent);
+      text-underline-offset: .15em;
     }
     .team-bio-popup .bio-name {
       font-family: var(--serif);
@@ -811,7 +815,7 @@
           <p class="bio-text">Dr. rer. nat. Philipp Stark is a Postdoctoral Fellow at the Department of Human Geography, Lund University, 
             and member of CIRCLE. Co-founder and manager of the Hägerstrand Lab, a computational research infrastructure supporting AI-driven social 
             science research. His work combines machine learning, representation learning, and causal AI with large-scale administrative and 
-            geospatial data to model labor markets, mobility, human capital, and broader human-driven social systems.</p>
+            geospatial data to model labor markets, mobility, human capital, and broader human-driven social systems. More on <a href="https://philippstark.github.io/NotJustPhil/" target="_blank" rel="noopener">philippstark.github.io/NotJustPhil</a></p>
         </div>
       </li>
 
@@ -912,4 +916,17 @@
 
 
 
+<script>
+  document.querySelectorAll('.team-card').forEach(function(card) {
+    var popup = card.querySelector('.team-bio-popup');
+    if (!popup) return;
+    var timer;
+    function show() { clearTimeout(timer); popup.classList.add('is-visible'); }
+    function hide() { timer = setTimeout(function() { popup.classList.remove('is-visible'); }, 120); }
+    card.addEventListener('mouseenter', show);
+    card.addEventListener('mouseleave', hide);
+    popup.addEventListener('mouseenter', show);
+    popup.addEventListener('mouseleave', hide);
+  });
+</script>
 </body></html>
