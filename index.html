@@ -417,6 +417,66 @@
       color: #aaa;
     }
 
+    /* ── NEWS / ANNOUNCEMENT BANNER ── */
+    .news-banner {
+      background: var(--ink);
+      color: #fff;
+      padding: 1.3rem 2rem;
+    }
+    .news-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: .8rem 2.2rem;
+    }
+    .news-banner-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 600;
+      color: var(--accent2);
+      white-space: nowrap;
+      padding-top: .2rem;
+      flex-shrink: 0;
+    }
+    .news-banner-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
+      flex: 1;
+    }
+    .news-banner-item {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      min-width: 260px;
+      flex: 1 1 320px;
+    }
+    .nb-tag {
+      flex-shrink: 0;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--accent2);
+      padding: .2rem .55rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .news-banner-item p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.85);
+    }
+    .news-banner-item p strong { color: #fff; }
+    @media (max-width: 700px) {
+      .news-banner-inner { flex-direction: column; }
+    }
+
     /* ── LOGO STRIP ── */
     .logo-strip {
       background: #fff;
@@ -448,6 +508,14 @@
       object-fit: contain;
       flex-shrink: 0;
       display: block;
+    }
+    .logo-strip-placeholder {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--mid);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* ── CALENDAR DOWNLOAD BUTTON ── */
@@ -610,12 +678,31 @@
   </div>
 </header>
 
+<!-- ═══════════════════════════════════ NEWS / ANNOUNCEMENTS ═══════════════════════════════════ -->
+<div class="news-banner">
+  <div class="news-banner-inner">
+    <span class="news-banner-label">Latest News</span>
+    <div class="news-banner-items">
+      <div class="news-banner-item">
+        <span class="nb-tag">New Speakers</span>
+        <p>We are very happy to welcome <strong>Cecilia Leveaux</strong> (Senior Advisor, Nordic Council of Ministers), who joins us with a Nordic policy perspective on responsible AI and the New Nordic AI Center. We can also confirm that <strong>Carl Norling Markai</strong> (AI Sweden) is joining us and is sharing AI Sweden's work and engagement on responsible AI. We are very excited to have them join us!</p>
+      </div>
+      <div class="news-banner-item">
+        <span class="nb-tag">New Partner</span>
+        <p>We are very grateful that <strong>AI Lund</strong> is joining the Autumn School as a supporting funding partner — a huge opportunity to strengthen the connection between AI research and innovation research at Lund University.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════ LOGO STRIP ═══════════════════════════════════ -->
 <div class="logo-strip">
   <div class="logo-strip-scroll">
     <img src="logo-euspri.png" alt="EU-SPRI">
+    <img src="logo-ai-lund.png" alt="AI Lund" class="logo-fallback" data-fallback-text="AI Lund" data-fallback-class="logo-strip-placeholder">
     <img src="logo-circle-lu.png" alt="CIRCLE, Lund University">
     <img src="logo-VTT_Orange.png" alt="VTT Technical Research Centre of Finland">
+    <img src="logo-ai-sweden.png" alt="AI Sweden" class="logo-fallback" data-fallback-text="AI Sweden" data-fallback-class="logo-strip-placeholder">
   </div>
 </div>
 
@@ -909,12 +996,20 @@
         <img src="logo-euspri.png" alt="EU-SPRI" style="display: block;">
       </a>
 
+      <a href="https://www.ai.lu.se" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="logo-ai-lund.png" alt="AI Lund" class="logo-fallback" data-fallback-text="AI LUND" data-fallback-class="sponsor-logo-slot-placeholder">
+      </a>
+
       <a href="https://www.lu.se/circle" target="_blank" rel="noopener" class="sponsor-logo-slot">
         <img src="logo-circle-lu.png" alt="CIRCLE, Lund University" style="display: block;">
       </a>
 
       <a href="https://www.vttresearch.com" target="_blank" rel="noopener" class="sponsor-logo-slot">
         <img src="logo-VTT_Orange.png" alt="VTT Technical Research Centre of Finland" style="display: block;">
+      </a>
+
+      <a href="https://www.ai.se" target="_blank" rel="noopener" class="sponsor-logo-slot">
+        <img src="logo-ai-sweden.png" alt="AI Sweden" class="logo-fallback" data-fallback-text="AI SWEDEN" data-fallback-class="sponsor-logo-slot-placeholder">
       </a>
 
     </div>
@@ -927,6 +1022,14 @@
 
 
 <script>
+  document.querySelectorAll('img.logo-fallback').forEach(function(img) {
+    img.addEventListener('error', function() {
+      var span = document.createElement('span');
+      span.className = img.dataset.fallbackClass;
+      span.textContent = img.dataset.fallbackText;
+      img.replaceWith(span);
+    });
+  });
   document.querySelectorAll('.team-card').forEach(function(card) {
     var popup = card.querySelector('.team-bio-popup');
     if (!popup) return;
